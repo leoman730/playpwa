@@ -41,6 +41,50 @@
     
       
         <title>Chapter 2 - PWA Docs</title>
+        <!--<meta charset="utf-8">-->
+        <meta name="description" content="Sample Description">
+        <meta name="theme-color" content="#009688">
+
+        <!--ANDROID-->
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="192x192" href="../assets/images/logo-192.png">
+        <link rel="icon" sizes="36x36" href="../assets/images/logo-36.png">
+
+        <!--IOS-->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#009688">
+        <meta name="apple-mobile-web-app-title" content="Title of Document">
+        <link rel="apple-touch-icon" href="../assets/images/logo-192.png">
+        <link rel="apple-touch-icon-precomposed" href="../assets/images/logo-192.png">
+        <link rel="apple-touch-startup-image" href="../assets/images/logo-192.png">
+
+        <!--WINDOWS-->
+        <meta name="msapplication-TileImage" content="../assets/images/logo-192.png">
+        <meta name="msapplication-TileColor" content="#009688">
+        <meta name="msapplication-square310x310logo" content="../assets/images/logo-192.png">
+        <meta name="msapplication-navbutton-color" content="#009688">
+		
+		<!-- WEB -->
+		<!--<link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">-->
+        <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" sizes="192x192" href="../assets/images/logo-192.png">
+
+        <link rel="manifest" href="../manifest.json">
+
+        <script>
+            'use strict';
+
+            if ('serviceWorker' in navigator) {
+	            navigator.serviceWorker.register('service-worker.js', {scope: '/'})
+		            .then(function(reg) {
+			            console.log('Registration succeeded. Scope is ' + reg.scope);
+		            }).catch(function(error) {
+		            console.log('Registration failed with ' + error);
+	            });
+            }
+
+        </script>
+
       
     
     
