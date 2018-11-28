@@ -2,7 +2,8 @@ site_name: PWA Docs
 site_author: Author
 site_favicon: assets/images/favicon.ico
 site_url: https://github.com/Snickdx/pwadocs
-
+site_dir: 'docs'
+docs_dir: 'source'
 theme: 'material'
 
 pages:

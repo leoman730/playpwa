@@ -7,27 +7,27 @@ var gulp = require('gulp'),
 	swPrecache = require('sw-precache'),
 	runSequence = require('run-sequence'),
 	fs = require('fs'),
-	rootDir = 'site';
+	rootDir = 'docs';
 
 gulp.task('mkdocs-build', shell.task([
 	'mkdocs build --clean'
 ]));
 
 gulp.task('inject-pwa', function() {
-	
+
 	fs.readFile('config.json', function(err, data){
 		var config = JSON.parse(data);
-		
-		gulp.src("PWA/manifest.json").pipe(gulp.dest('site/'));
-		gulp.src("assets/**/*").pipe(gulp.dest('site/assets/'));
+
+		gulp.src("PWA/manifest.json").pipe(gulp.dest('docs/'));
+		gulp.src("assets/**/*").pipe(gulp.dest('docs/assets/'));
 		gulp.src('PWA/index.html').pipe((textTransformation(function(str){
-			gulp.src('site/**/index.html')
+			gulp.src('docs/**/index.html')
 				.pipe(inject.after('</title>', str))
 				.pipe(template(config))
-				.pipe(gulp.dest('site'));
+				.pipe(gulp.dest('docs'));
 			return str;
 		}))());
-		
+
 		config.icons = [
 			{
 				"src": config.img_36,
@@ -45,18 +45,18 @@ gulp.task('inject-pwa', function() {
 				"type": "image/png"
 			}
 		];
-		
+
 		config.display = "standalone";
 		config.scope = "/";
-		fs.writeFile("site/manifest.json", JSON.stringify(config), function(err) {
+		fs.writeFile("docs/manifest.json", JSON.stringify(config), function(err) {
 			if(err) {
 				return console.log(err);
 			}
 		});
-		
+
 	});
-	
-	
+
+
 });
 
 gulp.task('generate-sw', function(){
@@ -66,9 +66,9 @@ gulp.task('generate-sw', function(){
 	});
 });
 
-gulp.task('build-site', function(){
+gulp.task('build-docs', function(){
 	runSequence('mkdocs-build', 'inject-pwa', 'generate-sw');
 });
 
-gulp.task('default', ['build-site'], function() {
+gulp.task('default', ['build-docs'], function() {
 });
