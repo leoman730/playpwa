@@ -1,7 +1,7 @@
 {
 	"name": "Play PWA",
 	"short_name": "Play PWA",
-	"start_url": "index.html",
+	"start_url": "?utm_source=homescreen",
 	"display": "standalone",
 	"scope": "/",
 	"background_color": "#eeeeee",
@@ -11,6 +11,12 @@
 			"src": "assets/images/ios/ios-appicon-76-76.png",
 			"sizes": "36x36",
 			"type": "image/png"
+		},
+        {
+			"src": "assets/images/ios/ios-appicon-152-152.png",
+			"sizes": "144x144",
+			"type": "image/png"
 		}
+
 	]
 }

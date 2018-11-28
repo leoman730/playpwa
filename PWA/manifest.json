@@ -11,6 +11,12 @@
 			"src": "assets/images/ios/ios-appicon-76-76.png",
 			"sizes": "36x36",
 			"type": "image/png"
+		},
+        {
+			"src": "assets/images/ios/ios-appicon-152-152.png",
+			"sizes": "144x144",
+			"type": "image/png"
 		}
+
 	]
 }
